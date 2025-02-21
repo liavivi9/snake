@@ -1,8 +1,18 @@
-controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
-	
+controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
+    while (true) {
+        mySprite.left += 1
+        pause(1000)
+    }
 })
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    while (true) {
+        mySprite.bottom += 1
+        pause(1000)
+    }
+})
+let mySprite: Sprite = null
 scene.setBackgroundColor(13)
-let mySprite = sprites.create(img`
+mySprite = sprites.create(img`
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
@@ -21,7 +31,3 @@ let mySprite = sprites.create(img`
     7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 
     `, SpriteKind.Player)
 mySprite.setPosition(75, 50)
-while (true) {
-    mySprite.right += 1
-    pause(1000)
-}
